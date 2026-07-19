@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerCompass AI - Strength Assessment</title>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background-color: #0d0b1a;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0b1a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #22203a;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.logo-text h1 span {
+  color: #8b5cf6;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #9691b0;
+}
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #cfcbe0;
+  cursor: pointer;
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+/* FORM CARD */
+.form-card {
+  background-color: #14101f;
+  border: 1px solid #2a2540;
+  border-radius: 14px;
+  padding: 40px;
+  width: 100%;
+  max-width: 650px;
+}
+
+.step-tag {
+  display: inline-block;
+  background-color: #2c1c4d;
+  color: #a855f7;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.form-card h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #a29dbd;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* CHECKBOX GRID */
+.checkbox-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1b1730;
+  border: 1px solid #322c4d;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #cfcbe0;
+  cursor: pointer;
+  flex: 1 1 260px;
+}
+
+.checkbox-item:hover {
+  border-color: #8b5cf6;
+}
+
+.checkbox-item input {
+  width: 16px;
+  height: 16px;
+  accent-color: #8b5cf6;
+  cursor: pointer;
+}
+
+/* BUTTON */
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7c3aed;
+  background-image: linear-gradient(to right, #7c3aed, #3b82f6);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid #22203a;
+  padding: 20px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  color: #8a84a0;
+  font-size: 13px;
+}
+
+.footer div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .navbar, .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .form-card {
+    padding: 25px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo-area">
+      <svg class="logo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="#8b5cf6" stroke-width="2"/>
+        <path d="M15 9L13 13L9 15L11 11L15 9Z" fill="#8b5cf6"/>
+      </svg>
+      <div class="logo-text">
+        <h1>CareerCompass <span>AI</span></h1>
+        <p>Discover. Assess. Achieve.</p>
+      </div>
+    </div>
+    <div class="lang-select">
+      🌐 English ▾
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper">
+
+    <div class="form-card">
+
+      <div class="step-tag">Step 3 of 6</div>
+      <h2>Strength Assessment</h2>
+      <p class="subtitle">Select the strengths that describe you best.</p>
+
+      <form action="/strengths" method="POST">
+
+        <div class="checkbox-grid">
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Logical Reasoning">
+            Logical Reasoning
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Communication">
+            Communication
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Creativity">
+            Creativity
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Leadership">
+            Leadership
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Teamwork">
+            Teamwork
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Problem Solving">
+            Problem Solving
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Problem Solving">
+            Data literacy
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Problem Solving">
+            Negotiation
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Problem Solving">
+            Rapid Upskilling
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Problem Solving">
+            Visual Awareness
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Critical Thinking">
+            Critical Thinking
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Empathy">
+            Empathy and Emotional Intelligence
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Fast Learner">
+            Fast Learner
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Data Analysis">
+            Data Analysis
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Project Management">
+            Project Management
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Pattern Recognition">
+            Pattern Recognition
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Risk Management">
+            Risk Management
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Research and Analysis">
+            Research and Analysis
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Critical Thinking">
+            Critical Thinking
+          </label>
+
+          <label class="checkbox-item">
+            <input type="checkbox" name="strengths" value="Public Speaking">
+            Public Speaking
+          </label>
+        </div>
+
+        <button type="submit" class="next-btn">Next →</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>🛡️ Your data is safe with us. We respect your privacy.</div>
+    <div>✉️ support@careercompass.ai</div>
+    <div>❤️ Helping students build a better tomorrow.</div>
+  </div>
+
+</body>
+</html>

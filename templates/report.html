@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerCompass AI - Your Report</title>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background-color: #0d0b1a;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0b1a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #22203a;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.logo-text h1 span {
+  color: #8b5cf6;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #9691b0;
+}
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #cfcbe0;
+  cursor: pointer;
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+.report-container {
+  width: 100%;
+  max-width: 750px;
+}
+
+.report-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.report-title h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.report-title .subtitle {
+  color: #a29dbd;
+  font-size: 14px;
+}
+
+/* CARD */
+.card {
+  background-color: #14101f;
+  border: 1px solid #2a2540;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: #1b1730;
+  border-bottom: 1px solid #2a2540;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.card-body {
+  padding: 22px;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: #cfcbe0;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.card-body p span {
+  color: #a855f7;
+  font-weight: bold;
+}
+
+.card-body ul {
+  padding-left: 20px;
+}
+
+.card-body ul li {
+  font-size: 14px;
+  color: #cfcbe0;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.card-body hr {
+  border: none;
+  border-top: 1px solid #2a2540;
+  margin: 18px 0;
+}
+
+/* PROGRESS BARS */
+.score-label {
+  font-size: 13px;
+  color: #cfcbe0;
+  margin-bottom: 6px;
+}
+
+.progress {
+  width: 100%;
+  background-color: #1b1730;
+  border: 1px solid #2a2540;
+  border-radius: 8px;
+  height: 24px;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-image: linear-gradient(to right, #7c3aed, #3b82f6);
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+
+/* CAREER + ROADMAP BLOCKS */
+.career-block h4,
+.roadmap-block h4 {
+  font-size: 17px;
+  color: #8b5cf6;
+  margin-bottom: 10px;
+}
+
+/* CONFIDENCE SCORE */
+.confidence-body {
+  text-align: center;
+}
+
+.confidence-body h1 {
+  font-size: 42px;
+  color: #8b5cf6;
+  margin-bottom: 10px;
+}
+
+.confidence-body p {
+  color: #a29dbd;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid #22203a;
+  padding: 20px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  color: #8a84a0;
+  font-size: 13px;
+}
+
+.footer div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .navbar, .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  /* DOWNLOAD BUTTON */
+
+.download-btn{
+  background:#8b5cf6;
+  color:white;
+  border:none;
+  padding:12px 22px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.download-btn:hover{
+  background:#7c3aed;
+}
+
+@media print{
+
+  .navbar,
+  .footer,
+  .download-btn{
+      display:none;
+  }
+
+  body{
+      background:white;
+  }
+
+  .card{
+      page-break-inside:avoid;
+  }
+
+}
+
+  .card-body {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo-area">
+      <svg class="logo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="#8b5cf6" stroke-width="2"/>
+        <path d="M15 9L13 13L9 15L11 11L15 9Z" fill="#8b5cf6"/>
+      </svg>
+      <div class="logo-text">
+        <h1>CareerCompass <span>AI</span></h1>
+        <p>Discover. Assess. Achieve.</p>
+      </div>
+    </div>
+    <div class="lang-select">
+      🌐 English 
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper">
+    <div class="report-container">
+
+      <div class="report-title">
+        <h2>CareerCompass AI Report</h2>
+        <p class="subtitle">Your personalized career guidance, based on your assessment.</p>
+      </div>
+<div style="text-align:center; margin:30px 0 40px 0;">
+    <button class="download-btn" onclick="window.print()">
+         Download Report as PDF
+    </button>
+</div>
+      <!-- PERSONAL DETAILS -->
+      <div class="card">
+        <div class="card-header">👤 Personal Details</div>
+        <div class="card-body">
+        <p><span>Name:</span> {{ profile.personal_details.name }}</p>
+        <p><span>Age:</span> {{ profile.personal_details.age }}</p>
+        <p><span>Education:</span> {{ profile.personal_details.education }}</p>
+        <p><span>CGPA:</span> {{ profile.personal_details.cgpa }}</p>
+        <p><span>Location:</span> {{ profile.personal_details.district }}, {{ profile.personal_details.state }}</p>
+        </div>
+      </div>
+
+<!-- PERSONALITY SCORES -->
+<div class="card">
+    <div class="card-header">📊 Personality Scores </div>
+        <div class="card-body">
+
+        {% for skill, score in report.evaluation.q20_scores.items() %}
+
+            <p class="score-label">
+                {{ skill.replace("_"," ").title() }}
+            </p>
+
+            <div class="progress">
+                <div class="progress-bar" style="width: {{ score * 10 }}%;">
+                    {{ score }}/10
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+      <!-- STRENGTHS -->
+      <div class="card">
+        <div class="card-header">💪 Major Strengths</div>
+        <div class="card-body">
+           <ul>
+            {% for item in report.evaluation.profile_analysis.major_strengths %}
+            <li>{{ item }}</li>
+            {% endfor %}
+           </ul>
+        </div>
+      </div>
+
+      <!-- AREAS TO IMPROVE -->
+      <div class="card">
+        <div class="card-header">📈 Areas To Improve</div>
+        <div class="card-body">
+          <ul>
+            <li>Public Speaking</li>
+            <li>Stakeholder Alignment</li>
+            <li>Financial Literacy</li>
+          </ul>
+        </div>
+      </div>
+      
+<!-- CAREER RECOMMENDATIONS -->
+<div class="card">
+    <div class="card-header">💼 Top Career Recommendations</div>
+
+    <div class="card-body">
+
+        {% for career in report.career_recommendations %}
+
+        <div class="career-block">
+
+            <h4>{{ career.career_path }}</h4>
+
+            <p>
+                <span>Why it matches:</span>
+                {{ career.why_it_matches }}
+            </p>
+
+            <p><span>Skills to acquire:</span></p>
+
+            <ul>
+                {% for skill in career.skills_to_acquire %}
+                    <li>{{ skill }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+
+        {% if not loop.last %}
+        <hr>
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+<!-- ROADMAP -->
+<div class="card">
+    <div class="card-header">🛣️ Career Roadmap</div>
+
+    <div class="card-body">
+
+        {% for phase_key, phase in report.roadmap.items() %}
+
+        <div class="roadmap-block">
+
+            <h4>{{ phase.title }}</h4>
+
+            <p>
+                <span>Duration:</span>
+                {{ phase.duration }}
+            </p>
+
+            {% if phase.focus %}
+            <p>
+                <span>Focus:</span>
+                {{ phase.focus }}
+            </p>
+            {% endif %}
+
+            <ul>
+
+                {% if phase.action_items %}
+
+                    {% for item in phase.action_items %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+
+                {% elif phase.objectives %}
+
+                    {% for item in phase.objectives %}
+                        <li>{{ item }}</li>
+                    {% endfor %}
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+        {% if not loop.last %}
+        <hr>
+        {% endif %}
+
+        {% endfor %}
+
+    </div>
+</div>
+
+      <!-- CONFIDENCE SCORE -->
+<!-- CONFIDENCE SCORE -->
+<div class="card">
+    <div class="card-header">🎯 Confidence Score</div>
+
+    <div class="card-body confidence-body">
+
+        <h1>{{ report.confidence_score }}%</h1>
+
+        <p>
+            This score reflects how well your profile matches the recommended career paths.
+        </p>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">📚 Recommended Learning Resources</div>
+
+    <div class="card-body">
+        <ul>
+            {% for item in report.learning_resources %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">🎓 Recommended Scholarships</div>
+
+    <div class="card-body">
+        <ul>
+            {% for item in report.scholarships %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<!-- OVERALL SUMMARY -->
+<div class="card">
+    <div class="card-header">📝 Overall Summary</div>
+    <div class="card-body">
+        <p>
+        {% if report.overall_summary %}
+            {{ report.overall_summary }}
+        {% else %}
+            {{ report.evaluation.profile_analysis.overall_personality }}
+        {% endif %}
+        </p>
+    </div>
+</div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>🛡️ Your data is safe with us. We respect your privacy.</div>
+    <div>✉️ support@careercompass.ai</div>
+    <div>❤️ Helping students build a better tomorrow.</div>
+  </div>
+
+</body>
+</html>
+

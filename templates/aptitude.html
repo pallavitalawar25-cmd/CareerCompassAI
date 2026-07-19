@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerCompass AI - Scenario Assessment</title>
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background-color: #0d0b1a;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0d0b1a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #22203a;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text h1 {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.logo-text h1 span {
+  color: #8b5cf6;
+}
+
+.logo-text p {
+  font-size: 12px;
+  color: #9691b0;
+}
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #cfcbe0;
+  cursor: pointer;
+}
+
+/* PAGE WRAPPER */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+/* FORM CARD */
+.form-card {
+  background-color: #14101f;
+  border: 1px solid #2a2540;
+  border-radius: 14px;
+  padding: 40px;
+  width: 100%;
+  max-width: 750px;
+}
+
+.step-tag {
+  display: inline-block;
+  background-color: #2c1c4d;
+  color: #a855f7;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.form-card h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #a29dbd;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* QUESTION BLOCK */
+.question-block {
+  border-bottom: 1px solid #22203a;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+}
+
+.question-text {
+  font-size: 15px;
+  color: #ffffff;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* OPTIONS */
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: #1b1730;
+  border: 1px solid #322c4d;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  color: #cfcbe0;
+  cursor: pointer;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.option:hover {
+  border-color: #8b5cf6;
+}
+
+.option input {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  accent-color: #8b5cf6;
+  cursor: pointer;
+}
+
+/* SHORT ANSWER TEXTAREA */
+.text-answer {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #322c4d;
+  background-color: #1b1730;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  resize: vertical;
+}
+
+.text-answer::placeholder {
+  color: #7a7492;
+}
+
+.text-answer:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+/* BUTTON */
+.next-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7c3aed;
+  background-image: linear-gradient(to right, #7c3aed, #3b82f6);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.next-btn:hover {
+  opacity: 0.9;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid #22203a;
+  padding: 20px 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: space-between;
+  color: #8a84a0;
+  font-size: 13px;
+}
+
+.footer div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (max-width: 700px) {
+  .navbar, .footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .form-card {
+    padding: 25px;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo-area">
+      <svg class="logo-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="10" stroke="#8b5cf6" stroke-width="2"/>
+        <path d="M15 9L13 13L9 15L11 11L15 9Z" fill="#8b5cf6"/>
+      </svg>
+      <div class="logo-text">
+        <h1>CareerCompass <span>AI</span></h1>
+        <p>Discover. Assess. Achieve.</p>
+      </div>
+    </div>
+    <div class="lang-select">
+      🌐 English 
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper">
+
+    <div class="form-card">
+
+      <div class="step-tag">Step 6 of 6</div>
+      <h2>Let's See How You Think</h2>
+      <p class="subtitle">Answer honestly. There are no right or wrong answers, only what fits you best.</p>
+
+      <form action="/aptitude" method="POST">
+
+        <!-- Q1 -->
+        <div class="question-block">
+          <p class="question-text">1. Your freshly deployed code compiles successfully, but the output displays a critical logic error. What is your immediate next step?</p>
+          <label class="option"><input type="radio" name="q1" value="A"> Scrap the current code and rewrite the entire logic from scratch.</label>
+          <label class="option"><input type="radio" name="q1" value="B"> Isolate the execution flow using print statements or log breakpoints to locate the exact variance.</label>
+          <label class="option"><input type="radio" name="q1" value="C"> Immediately upload the code to an AI tool or forums asking someone else to fix it.</label>
+          <label class="option"><input type="radio" name="q1" value="D"> Log out of the system and hope the glitch resolves itself on the next system reboot.</label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-block">
+          <p class="question-text">2. You notice a small, unpatched security vulnerability in an internal tool that only your immediate team uses. It poses no immediate external threat. What do you do?</p>
+          <label class="option"><input type="radio" name="q2" value="A"> Ignore it since the tool is internal and the risk exposure looks low.</label>
+          <label class="option"><input type="radio" name="q2" value="B"> Inform your team lead casually during lunch next week.</label>
+          <label class="option"><input type="radio" name="q2" value="C"> Document the vulnerability and log an immediate ticket to patch it based on threat potential.</label>
+          <label class="option"><input type="radio" name="q2" value="D"> Attempt to exploit it yourself to see how far you can penetrate the system without permission.</label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-block">
+          <p class="question-text">3. The generative AI tool you are using to build a business report keeps outputting generic, superficial answers. How do you refine it?</p>
+          <label class="option"><input type="radio" name="q3" value="A"> Stop using the AI tool entirely and write the entire report manually.</label>
+          <label class="option"><input type="radio" name="q3" value="B"> Feed it detailed context, structural constraints, explicit personas, and few-shot examples.</label>
+          <label class="option"><input type="radio" name="q3" value="C"> Copy and paste the exact same prompt repeatedly hoping the output randomly improves.</label>
+          <label class="option"><input type="radio" name="q3" value="D"> Accept the generic response as-is and present it to your stakeholders.</label>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-block">
+          <p class="question-text">4. A web application you designed runs smoothly for 100 users but crashes completely when 10,000 users access it simultaneously. What is your primary focus?</p>
+          <label class="option"><input type="radio" name="q4" value="A"> Ask users to visit the site at different times to reduce server load.</label>
+          <label class="option"><input type="radio" name="q4" value="B"> Buy identical high-end servers manually every time traffic spikes.</label>
+          <label class="option"><input type="radio" name="q4" value="C"> Profile the application bottleneck to implement caching, database indexing, or auto-scaling infrastructure.</label>
+          <label class="option"><input type="radio" name="q4" value="D"> Reduce the visual features of the website so it uses less processing power.</label>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-block">
+          <p class="question-text">5. You are assigned a design problem with absolutely no obvious solution or industry precedent. How do you kickstart your process?</p>
+          <label class="option"><input type="radio" name="q5" value="A"> Wait for explicit instructions or a step-by-step brief from your manager.</label>
+          <label class="option"><input type="radio" name="q5" value="B"> Copy a layout from a popular app in a completely different industry and force it to fit.</label>
+          <label class="option"><input type="radio" name="q5" value="C"> Deconstruct the core user problem, map out diverse user journeys, and brainstorm non-traditional layouts.</label>
+          <label class="option"><input type="radio" name="q5" value="D"> Mark the assignment as impossible and request a transfer to a simpler task.</label>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question-block">
+          <p class="question-text">6. You love a sleek, minimalist dark-mode interface you designed, but early testing metrics show that elderly target users find it unreadable. What is your choice?</p>
+          <label class="option"><input type="radio" name="q6" value="A"> Keep the design as-is because it matches modern aesthetic trends perfectly.</label>
+          <label class="option"><input type="radio" name="q6" value="B"> Modify the interface elements based on accessibility standards, sacrificing your initial visual preference.</label>
+          <label class="option"><input type="radio" name="q6" value="C"> Create an optional complex user manual explaining to users how to adjust their phone screens.</label>
+          <label class="option"><input type="radio" name="q6" value="D"> Blame the testing panel selection and ask for a younger demographic to test your design.</label>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question-block">
+          <p class="question-text">7. You are rushing to meet a midnight product launch timeline. You spot minor misalignment issues in the sidebar icons. How do you handle this?</p>
+          <label class="option"><input type="radio" name="q7" value="A"> Push the product release anyway; nobody notices sidebar alignment issues.</label>
+          <label class="option"><input type="radio" name="q7" value="B"> Delay the entire product launch by two days to perfect the pixel grid.</label>
+          <label class="option"><input type="radio" name="q7" value="C"> Fix the visual alignment immediately using clean, scalable CSS properties before deploying at midnight.</label>
+          <label class="option"><input type="radio" name="q7" value="D"> Delete the sidebar icons completely to avoid dealing with alignment altogether.</label>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question-block">
+          <p class="question-text">8. You have two job offers: Offer A offers a massive salary with repetitive, automated work. Offer B offers a lower starting salary but puts you in charge of building a new AI platform from scratch. Which do you choose?</p>
+          <label class="option"><input type="radio" name="q8" value="A"> Offer A, because high immediate financial compensation is my only career driver.</label>
+          <label class="option"><input type="radio" name="q8" value="B"> Offer B, because the long-term compounding value of technical ownership outweighs immediate cash.</label>
+          <label class="option"><input type="radio" name="q8" value="C"> Turn down both offers because making this choice creates too much stress.</label>
+          <label class="option"><input type="radio" name="q8" value="D"> Accept both offers simultaneously and try to manage them at the same time until I am caught.</label>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question-block">
+          <p class="question-text">9. An influential business stakeholder demands an unexpected feature change that will break your development team's engineering sprint cycle. How do you respond?</p>
+          <label class="option"><input type="radio" name="q9" value="A"> Agree immediately to keep the stakeholder happy, despite knowing your team will burn out.</label>
+          <label class="option"><input type="radio" name="q9" value="B"> Reject the demand flatly without explanation, telling them it violates engineering policy.</label>
+          <label class="option"><input type="radio" name="q9" value="C"> Present data showing the impact on delivery timelines, and negotiate a phased launch or trade-off.</label>
+          <label class="option"><input type="radio" name="q9" value="D"> Hide the issue from your team and hope the stakeholder forgets about the feature.</label>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question-block">
+          <p class="question-text">10. Your digital product is acquiring thousands of users, but your cloud infrastructure bill is growing twice as fast as your revenue. What is your move?</p>
+          <label class="option"><input type="radio" name="q10" value="A"> Focus purely on marketing to bring in more users to outrun the rising costs.</label>
+          <label class="option"><input type="radio" name="q10" value="B"> Audit your cloud deployment, optimize data queries, and restructure your pricing model.</label>
+          <label class="option"><input type="radio" name="q10" value="C"> Shut down the server periodically during low-traffic hours to save money manually.</label>
+          <label class="option"><input type="radio" name="q10" value="D"> Request immediate venture capital funding to pay off the accumulating hosting bills.</label>
+        </div>
+
+        <!-- Q11 -->
+        <div class="question-block">
+          <p class="question-text">11. During a crucial sprint review, your team realizes a major feature block was missed because tasks were tracked through scattered text messages. How do you fix this workflow?</p>
+          <label class="option"><input type="radio" name="q11" value="A"> Ban text messaging entirely and require physical daily meetings for every tiny update.</label>
+          <label class="option"><input type="radio" name="q11" value="B"> Move all project deliverables to a structured Agile/Scrum framework with clear, transparent ownership.</label>
+          <label class="option"><input type="radio" name="q11" value="C"> Assign blame to the individual teammate who sent the most text messages.</label>
+          <label class="option"><input type="radio" name="q11" value="D"> Continue working as usual, assuming everyone will remember their tasks better next time.</label>
+        </div>
+
+        <!-- Q12 -->
+        <div class="question-block">
+          <p class="question-text">12. You design a groundbreaking AI tool that automates public food distribution, but a government department takes six months just to review the initial paperwork. What do you do?</p>
+          <label class="option"><input type="radio" name="q12" value="A"> Withdraw the application in frustration and launch it as a private commercial tool.</label>
+          <label class="option"><input type="radio" name="q12" value="B"> Navigate the compliance framework methodically, using stakeholder alignment to address policy concerns step-by-step.</label>
+          <label class="option"><input type="radio" name="q12" value="C"> Publicly criticize the department officials on social media to force them to move faster.</label>
+          <label class="option"><input type="radio" name="q12" value="D"> Give up on the project entirely and leave the public tech sector.</label>
+        </div>
+
+        <!-- Q13 -->
+        <div class="question-block">
+          <p class="question-text">13. A public-facing e-governance app you manage experiences a server breakdown on a national holiday, causing widespread public complaints online. How do you lead your team?</p>
+          <label class="option"><input type="radio" name="q13" value="A"> Issue an immediate, transparent status update, activate backup failovers, and coordinate an emergency patch crew calmly.</label>
+          <label class="option"><input type="radio" name="q13" value="B"> Switch off your work phone to avoid dealing with the stressful public backlash until business hours resume.</label>
+          <label class="option"><input type="radio" name="q13" value="C"> Blame your cloud provider publicly to shield your internal team from any administrative scrutiny.</label>
+          <label class="option"><input type="radio" name="q13" value="D"> Force your entire team to work without breaks for 48 hours straight while shouting commands.</label>
+        </div>
+
+        <!-- Q14 -->
+        <div class="question-block">
+          <p class="question-text">14. You are building an international data-sharing platform, but a sudden change in national cross-border data privacy regulations makes your current architecture illegal. What is your move?</p>
+          <label class="option"><input type="radio" name="q14" value="A"> Keep operating secretly, hoping regulatory compliance inspectors do not check your regional database hubs.</label>
+          <label class="option"><input type="radio" name="q14" value="B"> Halt all international operations permanently and limit your business to a local scale.</label>
+          <label class="option"><input type="radio" name="q14" value="C"> Map your data pipelines to the new legal frameworks, implementing regional localized hosting modules.</label>
+          <label class="option"><input type="radio" name="q14" value="D"> File a lawsuit against the government to reverse the law immediately.</label>
+        </div>
+
+        <!-- Q15 -->
+        <div class="question-block">
+          <p class="question-text">15. A highly capable teammate is suddenly falling behind on their deliverables, threatening your joint project deadline. What is your approach?</p>
+          <label class="option"><input type="radio" name="q15" value="A"> Take over their tasks silently, completing their work yourself without addressing the underlying issue.</label>
+          <label class="option"><input type="radio" name="q15" value="B"> Complain to the project manager immediately to remove them from your team layout.</label>
+          <label class="option"><input type="radio" name="q15" value="C"> Set up a private 1-on-1 check-in to understand their roadblock, offer support, and adjust sprint balances.</label>
+          <label class="option"><input type="radio" name="q15" value="D"> Ignore their delay and submit only your part of the project on time.</label>
+        </div>
+
+        <!-- Q16 -->
+        <div class="question-block">
+          <p class="question-text">16. Your client gives you a single-sentence brief: "Make a smart tool that improves internal company communication." No metrics, tools, or boundaries are set. What do you do?</p>
+          <label class="option"><input type="radio" name="q16" value="A"> Refuse to work until the client provides a 50-page technical specification document.</label>
+          <label class="option"><input type="radio" name="q16" value="B"> Conduct user discovery interviews, build a quick interactive prototype, and iterate based on fast user feedback.</label>
+          <label class="option"><input type="radio" name="q16" value="C"> Build a massive, expensive enterprise platform with dozens of unverified features based on a guess.</label>
+          <label class="option"><input type="radio" name="q16" value="D"> Do nothing and wait for the project timeline to run out.</label>
+        </div>
+
+        <!-- Q17 -->
+        <div class="question-block">
+          <p class="question-text">17. Your company transitions a core legacy database system to a brand-new cloud framework you have never heard of before. You need to use it starting next week. How do you adapt?</p>
+          <label class="option"><input type="radio" name="q17" value="A"> Request a transfer to another project team that still runs on legacy tools.</label>
+          <label class="option"><input type="radio" name="q17" value="B"> Complain that the transition is unfair and continue using your old methods manually.</label>
+          <label class="option"><input type="radio" name="q17" value="C"> Dedicate structural time to complete documentation tutorials, build sample projects, and learn the new syntax basics.</label>
+          <label class="option"><input type="radio" name="q17" value="D"> Hire a freelance contractor online to write your database queries for you secretly.</label>
+        </div>
+
+        <!-- Q18 -->
+        <div class="question-block">
+          <p class="question-text">18. You have five distinct ways to optimize a webpage layout. You have spent two weeks reading comparison articles but still haven't written a single line of code. What is happening?</p>
+          <label class="option"><input type="radio" name="q18" value="A"> You are doing excellent, deep research that will guarantee a flawless layout down the line.</label>
+          <label class="option"><input type="radio" name="q18" value="B"> You need to spend another two weeks reading articles to make sure you have all available data.</label>
+          <label class="option"><input type="radio" name="q18" value="C"> Set a firm 2-hour deadline, select the top two methods, run an A/B test split, and let user metrics decide.</label>
+          <label class="option"><input type="radio" name="q18" value="D"> Ask your manager to pick a random option for you so you don't have to choose.</label>
+        </div>
+
+        <!-- Q19 -->
+        <div class="question-block">
+          <p class="question-text">19. A senior designer reviews your user interface prototype and calls your favorite user journey map "overly complicated and confusing for users." How do you process this?</p>
+          <label class="option"><input type="radio" name="q19" value="A"> Delete the entire project file out of anger and start an entirely different career path.</label>
+          <label class="option"><input type="radio" name="q19" value="B"> Defend your layout aggressively, explaining that the senior designer simply does not understand your vision.</label>
+          <label class="option"><input type="radio" name="q19" value="C"> Ask the designer for specific behavioral examples, run a quick user test, and simplify the interface blocks.</label>
+          <label class="option"><input type="radio" name="q19" value="D"> Agree with everything they say outwardly, but change absolutely nothing in the final production build.</label>
+        </div>
+
+        <!-- Q20 - short answer -->
+        <div class="question-block">
+          <p class="question-text">20. Describe a time you built something (a project, code, artwork, or event) that failed completely when presented. What did you do next, and what did you learn?</p>
+          <textarea class="text-answer" name="q20" rows="4" placeholder="Type your answer here"></textarea>
+        </div>
+
+        <button type="submit" class="next-btn">Submit Assessment →</button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>🛡️ Your data is safe with us. We respect your privacy.</div>
+    <div>✉️ support@careercompass.ai</div>
+    <div>❤️ Helping students build a better tomorrow.</div>
+  </div>
+
+</body>
+</html>
