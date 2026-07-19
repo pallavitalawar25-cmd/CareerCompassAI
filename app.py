@@ -6,24 +6,20 @@ app = Flask(__name__)
 app.secret_key = "careercompass_secret"
 
 
-# ---------------- HOME ---------------- #
-
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# ---------------- PERSONAL DETAILS ---------------- #
+# - PERSONAL DETAILS - #
 
 @app.route("/personal", methods=["GET", "POST"])
 def personal():
 
     if request.method == "POST":
 
-        # Clear old session data
         session.clear()
 
-        # Store new user's details
         session["fullname"] = request.form["fullname"]
         session["age"] = request.form["age"]
         session["education"] = request.form["education"]
@@ -117,7 +113,6 @@ def aptitude():
 
     if request.method == "POST":
 
-        # Save MCQ answers
         for i in range(1, 20):
             session[f"q{i}"] = request.form.get(f"q{i}")
 
@@ -143,7 +138,7 @@ def report():
 
     mapped_traits = []
 
-    # Convert answers into traits
+    
     for i in range(1, 20):
 
         question = f"q{i}"
@@ -165,7 +160,6 @@ def report():
     print("\nQ20 ANSWER")
     print(q20_answer)
 
-    # Entire profile (this is what Gemini will receive later)
     user_profile = {
 
         "personal_details": {
@@ -209,12 +203,12 @@ def report():
     print(type(ai_report))
     print(ai_report)
 
-# Remove markdown if Gemini returns it
+
     ai_report = ai_report.replace("```json", "")
     ai_report = ai_report.replace("```", "")
     ai_report = ai_report.strip()
 
-# Convert JSON string to Python dictionary
+
     ai_report = json.loads(ai_report)
 
     print("\n==============================")
